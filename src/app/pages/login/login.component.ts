@@ -16,7 +16,7 @@ export class LoginComponent {
 
   enter(): void {
     if (this.userName.trim()) {
-      this.router.navigate(['/clients', this.userName])
+      this.router.navigate(['/clients'], { state: { userName: this.userName }});
     }
   }
 }
