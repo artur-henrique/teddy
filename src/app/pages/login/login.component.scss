@@ -1,0 +1,19 @@
+h1 {
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  font-size: var(--font-size-xxlg);
+  border-radius: var(--border-radius-1);
+  border: 0.1rem solid var(--grey-light-color-1);
+
+  &::placeholder {
+    color: var(--grey-light-color-2);
+  }
+}
