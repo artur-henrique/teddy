@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0px;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: var(--border-radius-1);
+}
