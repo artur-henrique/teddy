@@ -1,0 +1,40 @@
+<header>
+  <div>Menu</div>
+  <nav>
+    <a routerLink="/clients"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >Clientes</a>
+
+    <a
+      routerLink="/clients/selected" routerLinkActive="active-link"    [routerLinkActiveOptions]="{ exact: true }"
+    >Clientes Selecionados</a>
+
+    <a routerLink="/" routerLinkActive="active">Sair</a>
+  </nav>
+  <p>
+    Olá, {{ userName }}
+  </p>
+
+</header>
+
+<main>
+  <ng-container *ngIf="currentRoute === '/clients'">
+    <p><strong>{{ clientsFoundPerPage }}</strong> clientes encontrados:</p>
+  </ng-container>
+
+  <ng-container *ngIf="currentRoute === '/clients/selected'">
+    <p><strong>Clientes selecionados:</strong></p>
+  </ng-container>
+
+  <router-outlet></router-outlet>
+  <app-btn customClass="btn">Criar cliente</app-btn>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+  </div>
+
+</main>
+

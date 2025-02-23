@@ -1,0 +1,63 @@
+:host {
+  width: 100vw;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5em;
+  margin: 0;
+
+  box-shadow: 0px 2px 2px 0px #0000001A;
+
+  div {
+    margin-left: 4em;
+  }
+
+  p {
+    margin-right: 7.5em;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    margin-right: 2rem;
+
+    &:visited:not(.active-link) {
+      color: var(--black);
+    }
+  }
+}
+
+main {
+  margin: 1.875em 7.5em;
+
+  p {
+    margin-bottom: .625em;
+  }
+}
+
+.active-link {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.pagination {
+  margin: 1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+
+  button {
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-2);
+    color: var(--primary-color);
+    padding: 0.5em;
+  }
+}
