@@ -78,7 +78,12 @@ export class ClientService {
     this.selectedClientIdsSubject.next(ids);
   }
 
-  toggleClientSelection(clientId: number): void {
+  selectClient(clientId: number): void {
+    const currentIds = this.selectedClientIdsSubject.value;
+    this.selectedClientIdsSubject.next([...currentIds, clientId]);
+  }
+
+  deselectClient(clientId: number): void {
     const currentIds = this.selectedClientIdsSubject.value;
     const index = currentIds.indexOf(clientId);
 
@@ -86,8 +91,10 @@ export class ClientService {
       this.selectedClientIdsSubject.next(
         currentIds.filter(id => id !== clientId)
       );
-    } else {
-      this.selectedClientIdsSubject.next([...currentIds, clientId]);
     }
+  }
+
+  deselectAllClients(): void {
+    this.selectedClientIdsSubject.next([]);
   }
 }
