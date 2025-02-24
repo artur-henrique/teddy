@@ -70,6 +70,8 @@ export class ClientPageComponent implements OnInit {
     this.clientSelectionService.clientAction$.subscribe(({ client, action }) => {
       if (client && action) {
         this.handleClientAction(client, action);
+      } else {
+        this.clientService.deselectAllClients();
       }
     });
 
@@ -142,7 +144,10 @@ export class ClientPageComponent implements OnInit {
         this.setFormValues();
         break;
       case ClientActionType.SELECT:
-        console.log(`Cliente ${client.name} selecionado.`);
+        this.clientService.selectClient(client.id);
+        break;
+      case ClientActionType.DESELECT:
+        this.clientService.deselectClient(client.id);
         break;
     }
   }
@@ -173,5 +178,9 @@ export class ClientPageComponent implements OnInit {
     this.clientForm.reset();
     this.isCreateClientModalOpen = false;
     this.isEditClientModalOpen = false;
+  }
+
+  onDeselectAllClients() {
+    this.clientSelectionService.clearSelection();
   }
 }
