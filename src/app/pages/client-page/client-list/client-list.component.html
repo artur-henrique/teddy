@@ -1,6 +1,12 @@
-<div class="container">
+<div *ngIf="currentRoute === '/clients'" class="container">
   <ng-container *ngFor="let client of clients">
     <app-client-card [client]="client"></app-client-card>
+  </ng-container>
+</div>
+
+<div *ngIf="currentRoute === '/clients/selected'" class="container">
+  <ng-container *ngFor="let client of selectedClients">
+    <app-client-card [selected]="true" [client]="client"></app-client-card>
   </ng-container>
 </div>
 

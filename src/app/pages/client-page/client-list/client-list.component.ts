@@ -3,6 +3,8 @@ import { ClientCardComponent } from '../client-card/client-card.component';
 import { ClientService } from '../../../core/services/client/client.service';
 import { Client } from '../../../models/client.model';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -12,17 +14,27 @@ import { CommonModule } from '@angular/common';
 })
 export class ClientListComponent {
   clients: Client[] | undefined = [];
-  selectedClientIds: number[] = [];
+  selectedClients: Client[] | undefined = [];
+  routeSubscription!: Subscription;
+  currentRoute: string = '';
 
-  constructor(private clientService: ClientService) {}
+  constructor(
+    private clientService: ClientService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
+    this.currentRoute = this.router.url;
+    this.routeSubscription = this.router.events.subscribe(() => {
+      this.currentRoute = this.router.url;
+    })
+
     this.clientService.clients$.subscribe((data) => {
       this.clients = data?.clients;
     });
 
     this.clientService.selectedClientIds$.subscribe((ids) => {
-      this.selectedClientIds = ids;
+      this.selectedClients = this.clients?.filter(client => ids.includes(client.id));
     });
   }
 }
