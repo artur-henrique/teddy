@@ -23,4 +23,16 @@
     cursor: pointer;
     margin: 0;
   }
+
+  img:hover {
+    transform: scale(1.05);
+  }
+
+  img:active {
+    transform: scale(0.95);
+  }
+}
+
+.deselect {
+  justify-content: end;
 }

@@ -2,11 +2,15 @@
   <h2>{{ client.name }}</h2>
   <p>Salário: {{ formatCurrency(client.salary) }}</p>
   <p>Empresa: {{ formatCurrency(client.companyValuation) }}</p>
-  <div class="actions">
-    <img src="assets/icons/plus_sign.svg" width="17" height="17" alt="Editar">
+  <div *ngIf="!selected" class="actions">
+    <img (click)="onSelectClient()" src="assets/icons/plus_sign.svg" width="17" height="17" alt="Selecionar">
 
-    <img src="assets/icons/pencil.svg" width="20" height="20" alt="Editar">
+    <img (click)="onEditClient()" src="assets/icons/pencil.svg" width="20" height="20" alt="Editar">
 
-    <img src="assets/icons/trash.svg" width="20" height="20" alt="Editar">
+    <img (click)="onDeleteClient()" src="assets/icons/trash.svg" width="20" height="20" alt="Excluir">
+  </div>
+
+  <div *ngIf="selected" class="actions deselect">
+    <img (click)="onDeselectClient()" src="assets/icons/minus.svg" width="20" height="20" alt="Deselecionar">
   </div>
 </div>

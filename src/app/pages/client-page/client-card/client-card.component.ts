@@ -1,20 +1,37 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Client } from '../../../models/client.model';
-import { ClientService } from '../../../core/services/client/client.service';
+import { ClientSelectionService } from '../../../core/services/client/client-selection.service';
+import { ClientActionType } from '../../../shared/enums/ClientActionType.enum';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-client-card',
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './client-card.component.html',
   styleUrl: './client-card.component.scss'
 })
 export class ClientCardComponent {
   @Input() client!: Client;
+  @Input() selected: boolean = false;
 
-  constructor(private clientService: ClientService) {}
+  constructor(
+    private clientSelectionService: ClientSelectionService
+  ) {}
 
-  toggleSelection(): void {
-   this.clientService.toggleClientSelection(this.client.id)   ;
+  onSelectClient(): void {
+    this.clientSelectionService.selectClient(this.client, ClientActionType.SELECT);
+  }
+
+  onDeselectClient(): void {
+    this.clientSelectionService.selectClient(this.client, ClientActionType.DESELECT);
+  }
+
+  onEditClient(): void {
+    this.clientSelectionService.selectClient(this.client, ClientActionType.EDIT);
+  }
+
+  onDeleteClient(): void {
+     this.clientSelectionService.selectClient(this.client, ClientActionType.DELETE);
   }
 
   formatCurrency(value: number): string {
