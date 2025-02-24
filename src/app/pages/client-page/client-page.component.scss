@@ -61,3 +61,35 @@ main {
     padding: 0.5em;
   }
 }
+
+app-modal {
+  h3 {
+    margin: 0 0 1em 0;
+  }
+
+  input {
+    padding: .625em;
+    height: 2.5em;
+    border: 2px solid var(--grey-light-color-1);
+    border-radius: var(--border-radius-2);
+
+    &::placeholder {
+      color: var(--grey-light-color-2);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: .625em;
+
+    button {
+      height: 2.5em;
+      font-weight: 700;
+      color: var(--white);
+      background-color: var(--primary-color);
+      border-radius: var(--border-radius-2);
+      border: none;
+    }
+  }
+}
