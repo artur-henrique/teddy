@@ -1,3 +1,5 @@
+import { ClientActionType } from "../shared/enums/ClientActionType.enum";
+
 export interface Client {
   id: number;
   name: string;
@@ -15,4 +17,9 @@ export interface ClientResponse {
   clients: Client[];
   totalPages: number;
   currentPage: number;
+}
+
+export interface ClientAction {
+  client: Client | null;
+  action: ClientActionType | null;
 }
