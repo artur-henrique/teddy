@@ -1,3 +1,3 @@
-<button (click)="onClick()" class="{{ customClass }}">
+<button [ngStyle]="{ 'font-size': fontSize }" (click)="onClick()" class="{{ customClass }}">
   <ng-content></ng-content>
 </button>
