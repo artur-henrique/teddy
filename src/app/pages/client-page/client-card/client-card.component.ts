@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Client } from '../../../models/client.model';
-import { ClientService } from '../../../core/services/client.service';
+import { ClientService } from '../../../core/services/client/client.service';
 
 @Component({
   selector: 'app-client-card',
