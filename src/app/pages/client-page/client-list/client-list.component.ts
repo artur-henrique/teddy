@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ClientCardComponent } from '../client-card/client-card.component';
-import { ClientService } from '../../../core/services/client.service';
+import { ClientService } from '../../../core/services/client/client.service';
 import { Client } from '../../../models/client.model';
 import { CommonModule } from '@angular/common';
 
