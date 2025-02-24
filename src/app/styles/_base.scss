@@ -15,4 +15,14 @@
 
   --border-radius-1: 0.125rem;
   --border-radius-2: 0.25rem;
+
+  --shadow-1: 0px 0px 4px 0px #0000001A;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

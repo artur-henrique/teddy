@@ -1,0 +1,121 @@
+:host {
+  width: 100vw;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5em;
+  margin: 0;
+
+  box-shadow: 0px 2px 2px 0px #0000001A;
+
+  div {
+    margin-left: 4em;
+  }
+
+  p {
+    margin-right: 7.5em;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    margin-right: 2rem;
+
+    &:visited:not(.active-link) {
+      color: var(--black);
+    }
+
+    &:hover:not(.active-link) {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+main {
+  margin: 1.875em 7.5em;
+
+  p {
+    margin-bottom: .625em;
+  }
+}
+
+.active-link {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.pagination {
+  margin: 1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+
+  button {
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-2);
+    color: var(--primary-color);
+    padding: 0.5em;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+}
+
+app-modal {
+  p:first-child {
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0 0 1rem 0;
+  }
+
+  input {
+    padding: .625em;
+    height: 2.5em;
+    border: 2px solid var(--grey-light-color-1);
+    border-radius: var(--border-radius-2);
+
+    &::placeholder {
+      color: var(--grey-light-color-2);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: .625em;
+
+  }
+
+  button {
+    height: 2.5em;
+    width: 100%;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-2);
+    border: none;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+}

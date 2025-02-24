@@ -4,11 +4,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-btn',
   imports: [],
   templateUrl: './btn.component.html',
-  styleUrl: './btn.component.scss'
+  styleUrl: './btn.component.scss',
 })
 export class BtnComponent {
-  @Output() btnClick = new EventEmitter<void>();
   @Input() customClass: string = '';
+  @Output() btnClick = new EventEmitter<void>();
 
   onClick() {
     this.btnClick.emit();
