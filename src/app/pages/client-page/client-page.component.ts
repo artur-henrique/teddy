@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { BtnComponent } from '../../shared/components/btn/btn.component';
-import { ClientService } from '../../core/services/client.service';
+import { ClientService } from '../../core/services/client/client.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
