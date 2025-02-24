@@ -1,5 +1,6 @@
 export enum ClientActionType {
   SELECT = 'SELECT',
   EDIT = 'EDIT',
-  DELETE = 'DELETE'
+  DELETE = 'DELETE',
+  DESELECT = 'DESELECT'
 }
