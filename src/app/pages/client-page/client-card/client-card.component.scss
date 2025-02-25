@@ -1,0 +1,42 @@
+.card {
+  width: 17.8em;
+  padding: .25em;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20);
+  border-radius: var(--border-radius-2);
+  text-align: center;
+
+  p {
+    margin: 0 0 .625em 0;
+  }
+
+  h2 {
+    margin: .93rem 0 0.625rem 0;
+  }
+}
+
+.selected {
+  border: 1px solid var(--primary-color);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+
+  img {
+    cursor: pointer;
+    margin: 0;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+  }
+
+  img:active {
+    transform: scale(0.95);
+  }
+}
+
+.deselect {
+  justify-content: end;
+}
