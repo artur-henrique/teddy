@@ -1,6 +1,5 @@
 export const environment = {
   production: false,
-  // api: 'api/users',
-  api: 'https://boasorte.teddybackoffice.com.br/users',
+  api: '/api/users',
   STORAGE_KEY: 'selectedIds',
 };
