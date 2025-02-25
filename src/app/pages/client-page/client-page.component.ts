@@ -9,6 +9,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ClientSelectionService } from '../../core/services/client/client-selection.service';
 import { Client } from '../../models/client.model';
 import { ClientActionType } from '../../shared/enums/ClientActionType.enum';
+import { environment } from '../../../environments/environment';
+
+const { STORAGE_KEY  } = environment;
 
 @Component({
   selector: 'app-client-page',
@@ -182,5 +185,6 @@ export class ClientPageComponent implements OnInit {
 
   onDeselectAllClients() {
     this.clientSelectionService.clearSelection();
+    localStorage.setItem(STORAGE_KEY, '[]');
   }
 }
