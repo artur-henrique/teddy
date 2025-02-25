@@ -1,4 +1,4 @@
-<div class="card">
+<div class="{{ isSelected ? 'card selected' : 'card'}}">
   <h2>{{ client.name }}</h2>
   <p>Salário: {{ formatCurrency(client.salary) }}</p>
   <p>Empresa: {{ formatCurrency(client.companyValuation) }}</p>
