@@ -17,8 +17,8 @@ Para rodar o projeto em sua máquina local, siga os passos abaixo:
 ### 1. Clone o repositório:
   
 ```
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
+git clone git@github.com:artur-henrique/teddy.git
+cd teddy
 ```
 ### 2. Instale as dependências:
 ```
