@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, tap, catchError, throwError } from 'rxjs';
 import { Client, ClientResponse, CreateClientDTO } from '../../../models/client.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClientService {
-  private apiUrl = 'api/users';
-
   private clientsSubject = new BehaviorSubject<ClientResponse | null>(null);
   clients$ = this.clientsSubject.asObservable();
 
@@ -19,13 +18,13 @@ export class ClientService {
   constructor(private http: HttpClient) {}
 
   getClients(page: number = 1, pageSize: number = 16): void {
-    this.http.get<ClientResponse>(`${this.apiUrl}?page=${page}&limit=${pageSize}'`).subscribe((data) => {
+    this.http.get<ClientResponse>(`${environment.api}?page=${page}&limit=${pageSize}'`).subscribe((data) => {
       this.clientsSubject.next(data);
     });
   }
 
   createClient(client: CreateClientDTO): Observable<Client> {
-    return this.http.post<Client>(this.apiUrl, client).pipe(
+    return this.http.post<Client>(environment.api, client).pipe(
       tap((newClient) =>{
         const currentClients = this.clientsSubject.value;
         if (currentClients?.clients) {
@@ -40,7 +39,7 @@ export class ClientService {
 
   updateClient(client: Client): Observable<Client> {
     console.log('Cliente editado: ', client);
-    return this.http.patch<Client>(`${this.apiUrl}/${client.id}`, client).pipe(
+    return this.http.patch<Client>(`${environment.api}/${client.id}`, client).pipe(
       tap((updatedClient) => {
         const currentClients = this.clientsSubject.value;
         if (currentClients?.clients) {
@@ -59,7 +58,7 @@ export class ClientService {
   }
 
   deleteClient(id: number): Observable<string> {
-    return this.http.delete<string>(`${this.apiUrl}/${id}`, {
+    return this.http.delete<string>(`${environment.api}/${id}`, {
       responseType: 'text' as 'json'
     }).pipe(
       tap(() => {
