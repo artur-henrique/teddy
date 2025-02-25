@@ -1,59 +1,55 @@
-# Teddy
+# Teddy Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+Este é um projeto desenvolvido em Angular com suporte para execução local, deploy via Vercel e configuração para execução em Docker.
 
-## Development server
+### 🛠 Tecnologias Utilizadas<br>
+- Angular 🅰
+- TypeScript 📜
+- Node.js
+- Vercel ⚡ 
 
-To start a local development server, run:
+<br>
 
-```bash
-ng serve
+## 🚀 Executando Localmente
+
+Para rodar o projeto em sua máquina local, siga os passos abaixo:
+
+### 1. Clone o repositório:
+  
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+git clone <URL_DO_REPOSITORIO>
+cd <NOME_DO_REPOSITORIO>
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+### 2. Instale as dependências:
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+npm install
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+### 3. Inicie o servidor:
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+npm start
 ```
+### 4. Acesse a aplicação no seu navegador:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+http://localhost:4200/
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+OBS: O projeto será iniciado localmente com um `proxy` configurado para evitar problemas de `CORS`.
+  
+<br>
+
+## 📦 Executando com Docker
+
+O projeto possui um arquivo Dockerfile para execução em um container. Para rodá-lo, utilize os seguintes comandos:
+```
+docker build -t teddy .
+docker run -p 8080:80 teddy
+```
+⚠ Atenção: Para que o projeto funcione corretamente em produção via Docker, o backend precisa estar configurado para permitir CORS.
+
+<br>
+
+## ⚡  Acesso via Vercel
+
+O projeto também está disponível online através da Vercel:
+
+https://teddy-ruddy-five.vercel.app/
